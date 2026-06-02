@@ -123,4 +123,11 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    'allowed_hosts' => [
+        '*.railway.app',
+        'healthcheck.railway.app',
+        env('APP_URL'),
+    ],
+
 ];
