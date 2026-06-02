@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // ROUTE HEALTHCHECK (UNTUK RAILWAY)
 // ==========================================
 Route::get('/up', function () {
-    return response()->json(['status' => 'ok']);
+    return response()->json(['status' => 'ok'], 200);
 });
 
 // Halaman root redirect ke login
