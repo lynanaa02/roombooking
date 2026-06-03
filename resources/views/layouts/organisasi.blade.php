@@ -21,27 +21,24 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            font-weight: 400;
             transition: background 0.3s ease;
         }
 
-        /* Dark Mode */
         body.dark-mode {
             background: #1a1a2e !important;
         }
 
-        /* Sidebar */
+        /* SIDEBAR */
         .sidebar {
             position: fixed;
             left: 0;
             top: 0;
             height: 100vh;
-            width: 280px;
+            width: 260px;
             background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s;
             z-index: 1000;
-            box-shadow: 2px 0 20px rgba(0,0,0,0.1);
             overflow-y: auto;
         }
 
@@ -51,7 +48,7 @@
 
         @media (max-width: 768px) {
             .sidebar {
-                left: -280px;
+                left: -260px;
             }
             .sidebar.active {
                 left: 0;
@@ -62,183 +59,301 @@
         }
 
         .sidebar-header {
-            padding: 28px 24px;
+            padding: 24px 20px;
+            text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .sidebar-header h3 {
-            font-size: 20px;
+            font-size: 18px;
             margin: 0;
             font-weight: 700;
         }
 
         .sidebar-header p {
-            font-size: 13px;
-            margin: 6px 0 0;
-            opacity: 0.8;
+            font-size: 11px;
+            margin: 4px 0 0;
+            opacity: 0.7;
         }
 
         .sidebar-menu {
-            padding: 20px 0;
+            padding: 16px 0;
         }
 
         .sidebar-menu .nav-link {
-            padding: 12px 24px;
+            padding: 10px 20px;
             color: rgba(255,255,255,0.85);
-            transition: all 0.25s ease;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            transition: all 0.2s;
         }
 
         .sidebar-menu .nav-link:hover {
             background: rgba(255,255,255,0.1);
             color: white;
-            padding-left: 30px;
+            padding-left: 26px;
         }
 
         .sidebar-menu .nav-link.active {
             background: rgba(255,255,255,0.15);
-            color: white;
-            border-left: 4px solid #ffd700;
-            font-weight: 600;
+            border-left: 3px solid #ffd700;
         }
 
         .sidebar-menu .nav-link i {
             width: 22px;
-            font-size: 18px;
+            font-size: 16px;
         }
 
-        /* Main Content */
+        /* MAIN CONTENT */
         .main-content {
-            margin-left: 280px;
+            margin-left: 260px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             transition: all 0.3s;
         }
 
-        /* Top Header */
+        /* TOP HEADER */
         .top-header {
             background: white;
-            padding: 16px 28px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 10px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
             position: sticky;
             top: 0;
             z-index: 99;
-            border-bottom: 2px solid #386dd8;
+            border-bottom: 2px solid #667eea;
+            gap: 15px;
         }
 
         body.dark-mode .top-header {
-            background-color: #1e293b !important;
+            background: #1e293b;
+            border-bottom-color: #334155;
         }
 
-        body.dark-mode .top-header .logo-area h2,
-        body.dark-mode .top-header .logo-area p {
-            color: #e0e0e0 !important;
-        }
-
+        /* MENU TOGGLE (hanya di HP) */
         .menu-toggle {
             display: none;
             background: #667eea;
             border: none;
             color: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
         }
 
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .top-header {
-                padding: 12px 16px;
-            }
-        }
-
+        /* LOGO AREA */
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            flex: 1;
         }
 
         .logo-img {
             width: 45px;
             height: 45px;
-            object-fit: contain;
+            object-fit: cover;
             border-radius: 10px;
         }
 
-        .logo-area h2 {
+        .logo-text h2 {
             font-size: 20px;
             margin: 0;
             font-weight: 800;
             color: #1a1a2e;
+            letter-spacing: -0.02em;
         }
 
-        .logo-area p {
-            font-size: 12px;
+        body.dark-mode .logo-text h2 {
+            color: #e0e0e0;
+        }
+
+        .logo-text p {
+            font-size: 10px;
             margin: 2px 0 0;
-            color: #666;
+            color: #6b7280;
         }
 
-        @media (max-width: 768px) {
-            .logo-area h2 { font-size: 14px !important; }
-            .logo-area p { font-size: 9px !important; }
-            .logo-area i { font-size: 24px; }
+
+        .desktop-logo {
+            display: block;
+        }
+        .mobile-logo {
+            display: none;
         }
 
-        .user-info {
+        /* USER INFO AREA */
+        .user-info-area {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 15px;
+            flex-shrink: 0;
         }
 
-        .user-info .text-end small {
-            font-size: 12px;
-            font-weight: 500;
-            color: #888;
+        .dark-mode-toggle {
+            background: #f3f4f6;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
         }
 
-        .user-info .text-end div {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1a1a2e;
+        body.dark-mode .dark-mode-toggle {
+            background: #334155;
+            color: white;
         }
 
-        body.dark-mode .user-info .text-end small,
-        body.dark-mode .user-info .text-end div {
-            color: #e0e0e0 !important;
+        .user-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 6px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            border: 1px solid #e2e8f0;
         }
-       
-        .user-info .avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+
+        body.dark-mode .user-card {
+            background: #334155;
+            border-color: #475569;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 14px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
 
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-name-text {
+            text-align: left;
+        }
+
+        .user-name-text small {
+            font-size: 10px;
+            color: #6b7280;
+            display: block;
+            line-height: 1.2;
+        }
+
+        body.dark-mode .user-name-text small {
+            color: #94a3b8;
+        }
+
+        .user-name-text span {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        body.dark-mode .user-name-text span {
+            color: white;
+        }
+
+        .dropdown-icon {
+            font-size: 12px;
+            color: #94a3b8;
+            transition: transform 0.2s;
+        }
+
+        .user-dropdown.open .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu-custom {
+            position: absolute;
+            top: 55px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            min-width: 180px;
+            display: none;
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        body.dark-mode .dropdown-menu-custom {
+            background: #1e293b;
+            border: 1px solid #334155;
+        }
+
+        .user-dropdown {
+            position: relative;
+        }
+
+        .user-dropdown.open .dropdown-menu-custom {
+            display: block;
+        }
+
+        .dropdown-menu-custom a,
+        .dropdown-menu-custom button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 13px;
+            width: 100%;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        body.dark-mode .dropdown-menu-custom a,
+        body.dark-mode .dropdown-menu-custom button {
+            color: #cbd5e1;
+        }
+
+        .dropdown-menu-custom a:hover,
+        .dropdown-menu-custom button:hover {
+            background: #f3f4f6;
+        }
+
+        body.dark-mode .dropdown-menu-custom a:hover,
+        body.dark-mode .dropdown-menu-custom button:hover {
+            background: #334155;
+        }
+
+        .dropdown-menu-custom a i,
+        .dropdown-menu-custom button i {
+            width: 20px;
+            color: #667eea;
+        }
+
+        /* CONTENT */
         .content-wrapper {
-            padding: 28px;
+            padding: 24px;
             flex: 1;
         }
 
@@ -248,67 +363,81 @@
             }
         }
 
+        /* FOOTER */
         footer {
             background: white;
-            padding: 20px 28px;
+            padding: 20px 24px;
             text-align: center;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.04);
+            margin-top: auto;
         }
 
         body.dark-mode footer {
-            background-color: #1e293b !important;
-        }
-
-        body.dark-mode footer h5,
-        body.dark-mode footer p {
-            color: #cbd5e1 !important;
-        }
-
-        footer h5 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a1a2e;
+            background: #1e293b;
         }
 
         footer p {
             font-size: 12px;
-            margin-bottom: 4px;
-            color: #888;
+            color: #6b7280;
+            margin: 0;
         }
 
-        .btn-custom {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border: none;
-            padding: 10px 24px;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s;
+        body.dark-mode footer p {
+            color: #94a3b8;
         }
 
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102,126,234,0.4);
+        /* RESPONSIVE HP */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .logo-text p {
+                display: none;
+            }
+
+            .desktop-logo {
+                display: none;
+            }
+
+            .mobile-logo {
+                display: block !important;
+                font-size: 16px !important;
+                line-height: 1.2 !important;
+                font-weight: 700 !important;
+                white-space: normal !important;
+            }
+
+            .logo-img {
+                width: 28px !important;
+                height: 28px !important;
+            }
+
+            .logo-area {
+                gap: 6px !important;
+                flex: 0 1 auto !important;
+            }
+
+            .user-name-text {
+                display: none;
+            }
+
+            .user-card {
+                padding: 5px 10px;
+            }
+
+            .user-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .top-header {
+                padding: 8px 12px;
+                gap: 8px;
+            }
         }
 
-        /* Dark Mode Toggle Button */
-        .dark-mode-toggle {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 8px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-
-        .dark-mode-toggle:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Modal Logout */
+        /* MODAL LOGOUT */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -317,7 +446,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
-            z-index: 999999 !important;
+            z-index: 999999;
             display: none;
             align-items: center;
             justify-content: center;
@@ -326,20 +455,17 @@
             background: white;
             border-radius: 24px;
             width: 90%;
-            max-width: 420px;
-            z-index: 1000000 !important;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: modalSlideIn 0.3s ease;
-        }
-        .modal-header {
-            padding: 24px 24px 0 24px;
+            max-width: 400px;
             text-align: center;
+            padding: 24px;
+        }
+        body.dark-mode .modal-container {
+            background: #1e293b;
         }
         .modal-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            background: #fee2e2;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
@@ -350,75 +476,50 @@
             font-size: 32px;
             color: #dc2626;
         }
-        .modal-header h3 {
+        .modal-container h3 {
             font-size: 20px;
-            font-weight: 700;
+            margin-bottom: 8px;
             color: #1f2937;
-            margin: 0;
         }
-        .modal-body {
-            padding: 16px 24px 0 24px;
-            text-align: center;
+        body.dark-mode .modal-container h3 {
+            color: #e0e0e0;
         }
-        .modal-body p {
+        .modal-container p {
             font-size: 14px;
             color: #6b7280;
-            line-height: 1.5;
-            margin: 0;
+            margin-bottom: 24px;
         }
-        .modal-footer {
-            padding: 20px 24px 24px 24px;
+        body.dark-mode .modal-container p {
+            color: #94a3b8;
+        }
+        .modal-buttons {
             display: flex;
             gap: 12px;
-            justify-content: center;
         }
         .modal-btn {
-            padding: 10px 24px;
+            flex: 1;
+            padding: 10px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 14px;
-            cursor: pointer !important;
-            transition: all 0.2s;
+            cursor: pointer;
             border: none;
-            flex: 1;
         }
         .modal-btn-cancel {
             background: #f3f4f6;
-            color: #6b7280;
+            color: #4b5563;
         }
-        .modal-btn-cancel:hover {
-            background: #e5e7eb;
-            transform: translateY(-1px);
+        body.dark-mode .modal-btn-cancel {
+            background: #334155;
+            color: #cbd5e1;
         }
         .modal-btn-confirm {
             background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
         }
-        .modal-btn-confirm:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-        }
-        body.dark-mode .modal-container {
-            background-color: #1e293b !important;
-        }
-        body.dark-mode .modal-header h3 {
-            color: #e0e0e0 !important;
-        }
-        body.dark-mode .modal-body p {
-            color: #94a3b8 !important;
-        }
-        body.dark-mode .modal-btn-cancel {
-            background-color: #334155 !important;
-            color: #cbd5e1 !important;
-        }
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
     </style>
 </head>
 <body>
-    <button class="menu-toggle" id="menuToggle" style="position: fixed; top: 15px; left: 15px; z-index: 1001;">
+    <button class="menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
     </button>
 
@@ -428,10 +529,6 @@
             <p>Universitas Jember</p>
         </div>
         <div class="sidebar-menu">
-            <button class="nav-link dark-mode-toggle" id="darkModeToggle">
-                <i class="fas fa-moon"></i>
-                <span>Dark Mode</span>
-            </button>
             <a href="{{ route('organisasi.dashboard') }}" class="nav-link {{ request()->routeIs('organisasi.dashboard') ? 'active' : '' }}">
                 <i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
@@ -452,8 +549,8 @@
                 <i class="fas fa-history"></i>
                 <span>Riwayat Booking</span>
             </a>
-            <a class="nav-link" href="{{ route('organisasi.profile') }}">
-                <i class="fas fa-user-circle me-2"></i>
+            <a href="{{ route('organisasi.profile') }}" class="nav-link">
+                <i class="fas fa-user-circle"></i>
                 <span>Profile</span>
             </a>
             <a href="#" id="logoutBtn" class="nav-link">
@@ -470,18 +567,44 @@
         <div class="top-header">
             <div class="logo-area">
                 <img src="{{ asset('images/logo-unej.png') }}" alt="Logo" class="logo-img">
-                <div>
-                    <h2>SISTEM BOOKING RUANGAN & GEDUNG</h2>
+                <div class="logo-text">
+                    <h2 class="desktop-logo">SISTEM BOOKING RUANGAN & GEDUNG</h2>
+                    <h2 class="mobile-logo">SISTEM BOOKING</h2>
                     <p>Universitas Jember</p>
                 </div>
             </div>
-            <div class="user-info">
-                <div class="text-end">
-                    <small>Organisasi</small>
-                    <div>{{ Auth::user()->nama_organisasi ?? Auth::user()->name }}</div>
-                </div>
-                <div class="avatar">
-                    {{ substr(Auth::user()->nama_organisasi ?? Auth::user()->name, 0, 2) }}
+
+            <div class="user-info-area">
+                <button class="dark-mode-toggle" id="darkModeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-card" id="userCard">
+                        <div class="user-avatar">
+                            @if(Auth::user()->foto && file_exists(public_path(Auth::user()->foto)))
+                                <img src="{{ asset(Auth::user()->foto) }}" alt="Foto">
+                            @else
+                                {{ substr(Auth::user()->nama_organisasi ?? Auth::user()->name, 0, 2) }}
+                            @endif
+                        </div>
+                        <div class="user-name-text">
+                            <small>Organisasi</small>
+                            <span>{{ Auth::user()->nama_organisasi ?? Auth::user()->name }}</span>
+                        </div>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-menu-custom">
+                        <a href="{{ route('organisasi.profile') }}">
+                            <i class="fas fa-user-circle"></i> Profil
+                        </a>
+                        <a href="{{ route('organisasi.riwayat.index') }}">
+                            <i class="fas fa-history"></i> Riwayat
+                        </a>
+                        <button id="logoutBtnDropdown">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -493,26 +616,16 @@
         <footer>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <h5>Sistem Booking Ruangan & Gedung</h5>
-                        <p>Sistem peminjaman ruangan terintegrasi untuk sivitas akademika Universitas Jember</p>
+                    <div class="col-md-4">
+                        <p><strong>Sistem Booking Ruangan & Gedung</strong><br>Universitas Jember</p>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <h5>Kontak & Alamat</h5>
-                        <p><i class="fas fa-map-marker-alt me-2"></i>Jl. Kalimantan No.37, Jember</p>
-                        <p><i class="fas fa-phone me-2"></i>(0331) 330224</p>
-                        <p><i class="fas fa-envelope me-2"></i>info@unej.ac.id</p>
+                    <div class="col-md-4">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Jl. Kalimantan No.37, Jember<br>
+                        <i class="fas fa-phone me-2"></i>(0331) 330224</p>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <h5>Jam Operasional</h5>
-                        <p>Senin - Jumat: 08.00 - 16.00</p>
-                        <p>Sabtu: 08.00 - 12.00</p>
-                        <p>Minggu & Hari Libur: Tutup</p>
+                    <div class="col-md-4">
+                        <p>&copy; {{ date('Y') }} Sistem Booking<br>All rights reserved</p>
                     </div>
-                </div>
-                <hr>
-                <div class="text-center">
-                    <p class="text-muted mb-0">&copy; {{ date('Y') }} Sistem Booking Ruangan dan Gedung | Universitas Jember</p>
                 </div>
             </div>
         </footer>
@@ -521,23 +634,14 @@
     <!-- Modal Logout -->
     <div id="logoutModal" class="modal-overlay" style="display: none;">
         <div class="modal-container">
-            <div class="modal-header">
-                <div class="modal-icon">
-                    <i class="fas fa-sign-out-alt"></i>
-                </div>
-                <h3>Konfirmasi Logout</h3>
+            <div class="modal-icon">
+                <i class="fas fa-sign-out-alt"></i>
             </div>
-            <div class="modal-body">
-                <p>Apakah Anda yakin ingin keluar dari sistem?</p>
-                <p style="font-size: 12px; margin-top: 8px; color: #9ca3af;">Anda akan diarahkan ke halaman login</p>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn modal-btn-cancel" id="logoutCancelBtn">
-                    <i class="fas fa-times me-2"></i>Batal
-                </button>
-                <button class="modal-btn modal-btn-confirm" id="logoutConfirmBtn">
-                    <i class="fas fa-sign-out-alt me-2"></i>Ya, Logout
-                </button>
+            <h3>Konfirmasi Logout</h3>
+            <p>Apakah Anda yakin ingin keluar dari sistem?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-cancel" id="logoutCancelBtn">Batal</button>
+                <button class="modal-btn modal-btn-confirm" id="logoutConfirmBtn">Ya, Logout</button>
             </div>
         </div>
     </div>
@@ -546,9 +650,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        // ========================================
-        // DARK MODE
-        // ========================================
+        // Dark Mode
         function setCookie(name, value, days = 365) {
             let expires = "";
             if (days) {
@@ -571,10 +673,10 @@
         }
 
         function initDarkMode() {
-            const isDark = getCookie('theme') === 'dark';
-            if (isDark) {
+            if (getCookie('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
-                updateDarkModeButton(true);
+                const btn = document.getElementById('darkModeToggle');
+                if (btn) btn.innerHTML = '<i class="fas fa-sun"></i>';
             }
         }
 
@@ -582,106 +684,49 @@
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             setCookie('theme', isDark ? 'dark' : 'light');
-            updateDarkModeButton(isDark);
-        }
-
-        function updateDarkModeButton(isDark) {
             const btn = document.getElementById('darkModeToggle');
-            if (btn) {
-                btn.innerHTML = isDark ? '<i class="fas fa-sun me-2"></i> Light Mode' : '<i class="fas fa-moon me-2"></i> Dark Mode';
-            }
+            if (btn) btn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
         }
 
-        // ========================================
-        // SIDEBAR TOGGLE
-        // ========================================
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
-
         if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-            });
+            menuToggle.addEventListener('click', () => sidebar.classList.toggle('active'));
         }
 
-        document.addEventListener('click', function(event) {
-            if (window.innerWidth <= 768 && sidebar) {
-                const isClickInsideSidebar = sidebar.contains(event.target);
-                const isClickToggle = menuToggle ? menuToggle.contains(event.target) : false;
-                if (!isClickInsideSidebar && !isClickToggle && sidebar.classList.contains('active')) {
-                    sidebar.classList.remove('active');
-                }
-            }
+        const userDropdown = document.getElementById('userDropdown');
+        const userCard = document.getElementById('userCard');
+        if (userCard) {
+            userCard.addEventListener('click', (e) => {
+                e.stopPropagation();
+                userDropdown.classList.toggle('open');
+            });
+        }
+        document.addEventListener('click', () => {
+            if (userDropdown) userDropdown.classList.remove('open');
         });
 
-        // ========================================
-        // INITIALIZE
-        // ========================================
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             initDarkMode();
-
-            const darkModeBtn = document.getElementById('darkModeToggle');
-            if (darkModeBtn) {
-                darkModeBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    toggleDarkMode();
-                });
-            }
+            const darkBtn = document.getElementById('darkModeToggle');
+            if (darkBtn) darkBtn.addEventListener('click', toggleDarkMode);
         });
 
-        // ========================================
-        // LOGOUT MODAL
-        // ========================================
         const logoutModal = document.getElementById('logoutModal');
-        const logoutBtn = document.getElementById('logoutBtn');
+        const logoutBtns = ['logoutBtn', 'logoutBtnDropdown'];
         const logoutCancel = document.getElementById('logoutCancelBtn');
         const logoutConfirm = document.getElementById('logoutConfirmBtn');
 
-        function showLogoutModal() {
-            if (logoutModal) logoutModal.style.display = 'flex';
-        }
+        function showLogoutModal() { if (logoutModal) logoutModal.style.display = 'flex'; }
+        function closeLogoutModal() { if (logoutModal) logoutModal.style.display = 'none'; }
 
-        function closeLogoutModal() {
-            if (logoutModal) logoutModal.style.display = 'none';
-        }
-
-        if (logoutBtn) {
-            // Hapus event listener lama jika ada
-            const newLogoutBtn = logoutBtn.cloneNode(true);
-            logoutBtn.parentNode.replaceChild(newLogoutBtn, logoutBtn);
-
-            newLogoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                showLogoutModal();
-            });
-        }
-
-        if (logoutCancel) {
-            const newCancelBtn = logoutCancel.cloneNode(true);
-            logoutCancel.parentNode.replaceChild(newCancelBtn, logoutCancel);
-
-            newCancelBtn.addEventListener('click', function() {
-                closeLogoutModal();
-            });
-        }
-
-        if (logoutConfirm) {
-            const newConfirmBtn = logoutConfirm.cloneNode(true);
-            logoutConfirm.parentNode.replaceChild(newConfirmBtn, logoutConfirm);
-
-            newConfirmBtn.addEventListener('click', function() {
-                document.getElementById('logout-form').submit();
-            });
-        }
-
-        // Klik di luar modal
-        if (logoutModal) {
-            logoutModal.addEventListener('click', function(e) {
-                if (e.target === logoutModal) {
-                    closeLogoutModal();
-                }
-            });
-        }
+        logoutBtns.forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', (e) => { e.preventDefault(); showLogoutModal(); });
+        });
+        if (logoutCancel) logoutCancel.addEventListener('click', closeLogoutModal);
+        if (logoutConfirm) logoutConfirm.addEventListener('click', () => document.getElementById('logout-form').submit());
+        if (logoutModal) logoutModal.addEventListener('click', (e) => { if (e.target === logoutModal) closeLogoutModal(); });
     </script>
 
     @stack('scripts')
