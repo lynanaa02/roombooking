@@ -898,10 +898,6 @@
             <p>Universitas Jember</p>
         </div>
         <div class="sidebar-menu">
-            <a href="#" id="darkModeToggle" class="nav-link" onclick="toggleDarkMode(); return false;">
-                <i class="fas fa-moon"></i>
-                <span>Dark Mode</span>
-            </a>
             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                 <i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
